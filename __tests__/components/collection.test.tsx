@@ -9,9 +9,10 @@ import { ImageURL } from '../../src/entities/url';
 describe('<Collection>', () => {
   describe('Deve exibir uma coleção corretamente quando as informações passadas forem válidas', () => {
     it('Deve exibir o título da coleção quando ele for passado na prop "title"', () => {
+      //verifica se o título da coleção é exibido corretamente
       const title = faker.word.words(2);
       render(<Collection collection={collection({ title })} />);
-
+      //verifica se o texto do título está presente no documento
       expect(screen.getByText(title)).toBeInTheDocument();
     });
 

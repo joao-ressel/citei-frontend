@@ -2,8 +2,6 @@
 
 Este projeto foi desenvolvido com o objetivo de fornecer explicações e exemplos de conceitos de testes unitários, integração, regressão visual e E2E para os alunos da [web academy - UFAC](http://webacademy.ufac.br/).
 
-[Figma](https://www.figma.com/file/fj6Ya9rlaIoKFM4hwWgvpq/Citei?type=design&node-id=8-20)
-
 ---
 
 ## ⚒ Ferramentas

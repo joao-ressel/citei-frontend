@@ -10,7 +10,7 @@ describe('<CollectionList>', () => {
     it('Deve exibir um elemento em branco quando uma lista de coleções vazia for injetada via prop', () => {
       const collections = [] as ICollection[];
       const { container } = render(<CollectionList collections={collections} />);
-
+      //verifica se um elemento em branco é exibido quando uma lista vazia de coleções é injetada
       expect(container.firstChild).toBeEmptyDOMElement();
     });
 
@@ -19,7 +19,7 @@ describe('<CollectionList>', () => {
         collection()
       );
       render(<CollectionList collections={collections} />);
-
+      //verifica se o nome de todas as coleções é exibido corretamente quando as coleções são passadas
       collections.forEach(({ title }) => expect(screen.getByText(title)).toBeInTheDocument());
     });
 
@@ -27,9 +27,9 @@ describe('<CollectionList>', () => {
       const collections = Array.from(Array(faker.number.int({ min: 1, max: 10 }))).map(() =>
         collection()
       );
-
+      //verifica se o número de coleções renderizadas é o mesmo número de coleções passadas
       const { container } = render(<CollectionList collections={collections} />);
-
+      //verificar se o número de nós filhos do primeiro elemento do contêiner é igual ao número de coleções
       expect(container.firstChild?.childNodes.length).toBe(collections.length);
     });
   });

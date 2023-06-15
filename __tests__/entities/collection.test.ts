@@ -6,20 +6,20 @@ import { ImageURL } from '../../src/entities/url';
 describe('entities/collection', () => {
   describe('Deve retornar false quando uma coleção for instanciada com algum valor invalido', () => {
     it('Deve retornar false quando uma coleção for criada com o Título vazio', () => {
-      const arrange: ICollection = {
+      const arrange: ICollection = {//define um objeto
         title: '',
         author: faker.person.fullName(),
         image: new ImageURL(faker.image.url()),
         subtitle: faker.word.words(7),
       };
 
-      const collection = new Collection(
+      const collection = new Collection(//instancia o objeto
         arrange.title,
         arrange.author,
         arrange.subtitle,
         arrange.image
       );
-
+      //verifica se a propriedade isValid do objeto é igual a false
       expect(collection.isValid).toBe(false);
     });
 

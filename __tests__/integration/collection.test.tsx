@@ -6,6 +6,8 @@ import Collection from '../../src/containers/collection';
 import { collection } from '../../__tests__/factory/collection';
 import { collectionService as collectionServiceFactory } from '../../__tests__/factory/collectionService';
 
+//mock da função alert do window, evita que a função alert mostre uma caixa
+//de diálogo durante os testes, sendo substituindo por uma implementação vazia.
 beforeAll(() => {
   jest.spyOn(window, 'alert').mockImplementation(() => { });
 });
@@ -13,11 +15,13 @@ beforeAll(() => {
 describe('/containers/collection', () => {
   describe('Deve exibir a tela de coleções corretamente quando nenhuma coleção for injetada', () => {
     it('Deve exibir o título da página quando ela for carregada', async () => {
+      //o serviço é configurado para retornar uma lista vazia de coleções válidas
       const collectionService = collectionServiceFactory({
         getValidCollections: jest.fn().mockResolvedValue([]),
       });
+      //aguardando a renderização assíncrona do componente
       await act(async () => render(<Collection collectionService={collectionService} />));
-
+      //verificar se o elemento do tipo heading com o nome "Citei" está presente na tela.
       expect(screen.getByRole('heading', { name: 'Citei' })).toBeInTheDocument();
     });
 

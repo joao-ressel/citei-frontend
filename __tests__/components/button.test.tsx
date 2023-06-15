@@ -11,7 +11,7 @@ describe('<Button />', () => {
 
     const button = screen.getByRole('button');
 
-    expect(button).toMatchSnapshot();
+    expect(button).toMatchSnapshot();//verifica se o botão renderizado é igual ao snapshot
   });
 
   describe('Deve exibir o botão corretamente quando ele for renderizado', () => {
@@ -19,9 +19,9 @@ describe('<Button />', () => {
       const words = faker.word.words(3);
       render(<Button title={words} />);
 
-      const button = screen.getByText(words);
+      const button = screen.getByText(words);//obter o elemento do botão com base no texto do título
 
-      expect(button).toBeInTheDocument();
+      expect(button).toBeInTheDocument();//verifica se o elemento está presente no documento
     });
 
     it('Deve chamar a função de "onClick" quando o botão for clicado', async () => {
@@ -29,9 +29,9 @@ describe('<Button />', () => {
       render(<Button onClick={onClick} />);
 
       const button = screen.getByRole('button');
-      await userEvent.click(button);
+      await userEvent.click(button);//simulando um clique
 
-      expect(onClick).toBeCalledTimes(1);
+      expect(onClick).toBeCalledTimes(1);//verificando se foi chamado exatamente uma vez
     });
   });
 });
